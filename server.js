@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.send("API deployment successful");
 });
 
-app.post('/product', (req, res) => {
+app.post('/products', (req, res) => {
     const product = req.body;
 
     // output the product to the console for debugging
@@ -26,11 +26,11 @@ app.post('/product', (req, res) => {
     res.send('Product is added to the database');
 });
 
-app.get('/product', (req, res) => {
+app.get('/products', (req, res) => {
     res.json(products);
 });
 
-app.get('/product/:id', (req, res) => {
+app.get('/products/:id', (req, res) => {
     // reading id from the URL
     const id = req.params.id;
 
@@ -46,7 +46,7 @@ app.get('/product/:id', (req, res) => {
     res.status(404).send('Product not found');
 });
 
-app.delete('/product/:id', (req, res) => {
+app.delete('/products/:id', (req, res) => {
     // reading id from the URL
     const id = req.params.id;
 
@@ -63,7 +63,7 @@ app.delete('/product/:id', (req, res) => {
     res.send('Product is deleted');
 });
 
-app.post('/product/:id', (req, res) => {
+app.post('/products/:id', (req, res) => {
     // reading id from the URL
     const id = req.params.id;
     const newProduct = req.body;
@@ -78,7 +78,7 @@ app.post('/product/:id', (req, res) => {
     }
 
     // sending 404 when not found something is a good practice
-    res.send('Product is edited');
+    res.send('Products is edited');
 });
 
 app.post('/checkout', (req, res) => {
@@ -87,7 +87,7 @@ app.post('/checkout', (req, res) => {
     // output the product to the console for debugging
     orders.push(order);
 
-    res.redirect(302, 'https://assettracker.cf');
+    res.redirect(302, '/index.html');
 });
 
 app.get('/checkout', (req, res) => {
