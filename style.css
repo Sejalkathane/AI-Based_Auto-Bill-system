@@ -127,10 +127,12 @@ main {
     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
     color: black;
     border-radius: 25px;
-    padding: 15px 25px;
+    padding: 15px 15px;
     text-align: center;
     vertical-align: super;
     font-weight: 800;
+    margin: 30px;
+    
 }
 
 .card__amount {
@@ -193,7 +195,7 @@ main {
     padding-top: 5%;
     text-transform: uppercase;
     font-weight: 700;
-    padding-left: 15%;
+    padding-left: 40%;
 }
 
 .span4 {
@@ -205,7 +207,7 @@ main {
     padding-top: 5%;
     text-transform: uppercase;
     font-weight: 700;
-    padding-left: 15%;
+    padding-left: 25%;
 }
 
 .checkout {
