@@ -14,6 +14,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+.welcome{
+    margin-top: 0px;
+    position:relative;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+   color: rgb(24, 24, 126);
+   text-shadow: 1px 1px #02c8db;
+}
 
 img {
     max-width: 100%;
