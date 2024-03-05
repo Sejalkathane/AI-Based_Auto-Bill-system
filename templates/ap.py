@@ -47,7 +47,7 @@ def create_product():
     data = request.get_json()
 
     # Input validation
-    if not all(key in data for key in ("name", "price", "units")):
+    if not all(key in data for key in ("name", "price", "units", "taken")):
         return jsonify({"message": "Missing required fields"}), 400
 
     try:
@@ -56,8 +56,8 @@ def create_product():
             "name": data["name"],
             "price": Decimal(str(data["price"])),  # Convert to Decimal for accuracy
             "units": data["units"],
-            "taken": 0,
-            "payable": Decimal("0.0"),
+            "taken": int(data["taken"]),
+            "payable": Decimal(str(data["price"] * int(data["taken"]))),
         }
         products.append(new_product)
         return (
@@ -68,7 +68,6 @@ def create_product():
         )
     except ValueError:
         return jsonify({"message": "Invalid price format"}), 400
-
 
 # # Route to update a product by ID
 @app.route("/products/<int:product_id>", methods=["PUT"])
@@ -120,3 +119,4 @@ if __name__ == '__main__':
 
 
 # Invoke-RestMethod -Uri http://127.0.0.1:5000/products -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"name": "mango", "price": 34.2, "units": "4","taken":4}'
+

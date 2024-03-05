@@ -1,8 +1,8 @@
 var InitialCount = -1;
 
 const deleteProducts = async () => {
-  const url = "http://127.0.0.1:5000/products"; 
-  
+  const url = "http://127.0.0.1:5000/products";
+ 
   let res = await axios.get(url);
   responseText = await res.data;
   const products = responseText.products;
@@ -56,7 +56,7 @@ const loadProducts = async () => {
                   </div>
                   <div class="span3">Units</div>
                   <div class="card__unit">
-                      <span>${product.taken} ${product.unit}</span>
+                      <span>${product.taken} ${product.units}</span>
                   </div>
 
                   <div class="span4">Payable</div>
@@ -90,25 +90,15 @@ var checkout = async () => {
       payable = payable + parseFloat(product.payable);
     }
 
-    // Updated payment url
-    var paymentUrl = "/img/myqr.jpeg";
-
-    await fetch(paymentUrl)
-      .then(function (data) {
-        return data.blob();
-      })
-      .then(function (img) {
-        var image = URL.createObjectURL(img);
-        $("#home").css("display", "none");
-        $("#final").css("display", "none");
-        window.scroll({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        });
-        $("#image").attr("src", image);
-        $("#qr").css("display", "grid");
-      });
+    // Display the QR code image
+    $("#home").css("display", "none");
+    $("#final").css("display", "none");
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    $("#qr").css("display", "grid");
 
     setTimeout(function () {
       $("#qr").css("display", "none");
