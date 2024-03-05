@@ -231,7 +231,7 @@ def main(argv):
                             list_com(label, final_weight)  # Pass final_weight here
                            
                             if label == a:
-                                print('Tomato detected')
+                               print('Tomato detected')
                             elif label == b:
                                 print('Banana detected')
                             elif label == l:

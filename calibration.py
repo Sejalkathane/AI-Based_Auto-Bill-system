@@ -45,7 +45,7 @@ try:
         print('Your ratio is', ratio)
     else:
         raise ValueError('Cannot calculate mean value. Try debug mode. Variable reading:', reading)
-
+   
     # Read data several times and return mean value
     # subtracted by offset and converted by scale ratio to
     # desired units. In my case in grams.
